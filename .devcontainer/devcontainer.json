@@ -13,7 +13,7 @@
 					"/home/glue_user/aws-glue-libs/PyGlue.zip:/home/glue_user/spark/python/lib/py4j-0.10.9.5-src.zip:/home/glue_user/spark/python/"
 				],
 				"python.testing.pytestArgs": [
-					"."
+					"tests"
 				],
 				"python.testing.unittestEnabled": false,
 				"python.testing.pytestEnabled": true

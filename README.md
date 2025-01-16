@@ -134,6 +134,29 @@ Check `test.ipynb` for an example of:
 - Creating a DynamicFrame
 - Basic data transformation
 
+## Testing
+
+### Running Tests
+The project includes pytest examples for testing PySpark code. To run the tests:
+
+```bash
+pytest
+```
+
+### Example Test Cases
+The `tests/test_spark_transformations.py` file demonstrates:
+- Setting up PySpark test fixtures
+- Testing DataFrame transformations
+- Testing DataFrame filters and aggregations
+- Best practices for unit testing with PySpark
+
+Example test:
+```python
+def test_filter_by_department(spark, sample_data):
+    filtered_df = sample_data.filter(sample_data.department == "Engineering")
+    assert filtered_df.count() == 2
+```
+
 ## Troubleshooting
 
 - If JupyterLab doesn't start, check the logs in `/tmp/postStart.out`
