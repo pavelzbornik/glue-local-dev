@@ -157,6 +157,91 @@ def test_filter_by_department(spark, sample_data):
     assert filtered_df.count() == 2
 ```
 
+## Pre-commit Hooks
+
+This project uses pre-commit hooks to ensure code quality and consistency.
+
+### Configuration Files
+
+The pre-commit configuration consists of two main files:
+
+1. `.pre-commit-config.yaml`: Defines the hooks and their sources
+2. `pyproject.toml`: Contains Python-specific tool configurations
+
+#### .pre-commit-config.yaml Explanation
+```yaml
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0  # Version of pre-commit-hooks to use
+    hooks:
+      - id: trailing-whitespace  # Removes trailing whitespace
+      - id: end-of-file-fixer   # Ensures files end with newline
+      # ...other hooks...
+
+  - repo: https://github.com/psf/black
+    rev: 23.9.1  # Version of Black to use
+    hooks:
+      - id: black  # Python code formatter
+```
+
+#### pyproject.toml Explanation
+```toml
+[tool.isort]
+profile = "black"  # Makes isort compatible with Black
+skip_glob = ["migrations/*"]  # Directories to skip
+
+[tool.codespell]
+skip = ["*.json","*.yaml"]  # Files to skip
+builtin = "clear,rare,informal,usage,code,names"  # Dictionary types to use
+ignore-words-list = "dne,iam,IAM,jupyter,master,thead"  # Words to ignore
+```
+
+### Hook Descriptions
+
+### Code Quality Hooks
+- **trailing-whitespace**: Removes trailing whitespace
+- **end-of-file-fixer**: Ensures files end with a newline
+- **black**: Python code formatter
+- **isort**: Sorts Python imports
+- **pydocstyle**: Checks Python docstring formatting
+
+### Security Hooks
+- **detect-private-key**: Prevents committing private keys
+- **check-added-large-files**: Prevents large files from being committed
+
+### YAML Hooks
+- **check-yaml**: Validates YAML syntax
+- **yamllint**: Lints YAML files
+- **yamlfmt**: Formats YAML files
+
+### Other Hooks
+- **codespell**: Checks for common misspellings
+
+### Installation
+
+1. Install pre-commit:
+```bash
+pip install pre-commit
+```
+
+2. Install the pre-commit hooks:
+```bash
+pre-commit install
+```
+
+### Running Hooks
+
+- Hooks run automatically on `git commit`
+- Run manually on all files:
+```bash
+pre-commit run --all-files
+```
+
+- Run a specific hook:
+```bash
+pre-commit run <hook-id>
+```
+
 ## Troubleshooting
 
 - If JupyterLab doesn't start, check the logs in `/tmp/postStart.out`
@@ -349,7 +434,7 @@ Available packages:
 
 ```python
 Package            Version
------------------- ----------- 
+------------------ -----------
 backcall           0.2.0
 debugpy            1.7.0
 decorator          5.1.1

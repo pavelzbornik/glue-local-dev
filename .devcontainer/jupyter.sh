@@ -4,10 +4,10 @@ set -e
 
 if [[ -z $(pgrep -f jupyter-lab) ]]; then
     echo "Starting Livy and JupyterLab"
-    
+
     # Starting Livy Server
     livy-server start
-    
+
     # Starting JupyterLab
     jupyter lab \
         --no-browser \
@@ -34,7 +34,7 @@ if [[ -z $(pgrep -f jupyter-lab) ]]; then
                 "level": "INFO"
             }
         }'
-    
+
     echo "JupyterLab started and logging to /home/glue_user/jupyter/logs/jupyterlab.log"
 else
     echo "JupyterLab is already running"

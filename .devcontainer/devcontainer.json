@@ -16,18 +16,31 @@
 					"tests"
 				],
 				"python.testing.unittestEnabled": false,
-				"python.testing.pytestEnabled": true
+				"python.testing.pytestEnabled": true,
+				"editor.defaultFormatter": "esbenp.prettier-vscode",
+				"[json]": {
+				"editor.defaultFormatter": "esbenp.prettier-vscode"
+				},
+				"editor.formatOnSave": true
 			},
 			"extensions": [
 				"ms-python.python",
 				"ms-python.vscode-pylance",
 				"ms-toolsai.jupyter",
-				"ms-toolsai.datawrangler"
+				"ms-toolsai.datawrangler",
+				"esbenp.prettier-vscode",
+				"ms-python.black-formatter",
+        		"ms-python.flake8",
+				"ms-python.isort",
+				"prettier.prettier-vscode",
+				"ms-azuretools.vscode-docker",
+				"amazonwebservices.aws-toolkit-vscode",
+				"bierner.markdown-mermaid",
+				"hashicorp.terraform",
 			]
 		},
 	},
-	// "workspaceFolder": "/workspace",
-	"postCreateCommand": "echo >> ~/.bashrc && echo alias ll=\\'ls -alF\\' >> ~/.bashrc && echo 'Environment setup complete.'",
+	"postCreateCommand": "pip3 install -r requirements.txt && echo >> ~/.bashrc && echo alias ll=\\'ls -alF\\' >> ~/.bashrc && echo 'Environment setup complete.'",
 	"postStartCommand": "nohup bash -c '/home/glue_user/jupyter/jupyter.sh &' > /tmp/postStart.out",
 	"remoteUser": "glue_user",
 	"containerEnv": {

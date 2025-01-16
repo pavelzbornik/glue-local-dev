@@ -1,0 +1,9 @@
+[tool.isort]
+profile = "black"
+skip_glob = ["migrations/*"]
+
+[tool.codespell]
+skip = ["*.json","*.yaml"]
+builtin = "clear,rare,informal,usage,code,names"
+ignore-regex = "<[^>]+>|{%[^%]+%}"
+ignore-words-list = "dne,iam,IAM,jupyter,master,thead"
