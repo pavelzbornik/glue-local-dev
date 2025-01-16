@@ -20,4 +20,31 @@
 			]
 		},
 	},
+	// "workspaceFolder": "/workspace",
+	"postCreateCommand": "echo >> ~/.bashrc && echo alias ll=\\'ls -alF\\' >> ~/.bashrc && echo 'Environment setup complete.'",
+	"postStartCommand": "nohup bash -c '/home/glue_user/jupyter/jupyter.sh &' > /tmp/postStart.out",
+	"remoteUser": "glue_user",
+	"containerEnv": {
+		"AWS_PROFILE": "default",
+		"DISABLE_SSL": "true"
+	},
+	"forwardPorts": [4040, 18080, 8998, 8889],
+	"portsAttributes": {
+		"4040": {
+			"label": "Spark",
+			"protocol": "http"
+		},
+		"8889": {
+			"label": "JupyterLab",
+			"protocol": "http"
+		},
+		"8998": {
+			"label": "Livy",
+			"protocol": "http"
+		},
+		"18080": {
+			"label": "Spark History Server",
+			"protocol": "http"
+		}
+	},
 }
