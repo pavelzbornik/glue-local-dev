@@ -7,6 +7,7 @@ This project provides a local development environment for AWS Glue using VS Code
 - Docker Desktop
 - Visual Studio Code
 - VS Code Remote - Containers extension
+- AWS CLI
 
 ## Ubuntu Setup Guide
 
@@ -159,7 +160,7 @@ def test_filter_by_department(spark, sample_data):
 
 ## Pre-commit Hooks
 
-This project uses pre-commit hooks to ensure code quality and consistency.
+This project uses pre-commit hooks to ensure code quality and consistency. A pre-commit hook is a script that runs automatically before a git commit is completed. It's part of Git's hooks system and helps maintain code quality by running checks before code changes are committed.
 
 ### Configuration Files
 
