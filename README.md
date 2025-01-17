@@ -475,3 +475,11 @@ typing-extensions  4.7.1
 wcwidth            0.2.13
 zipp               3.15.0
 ```
+
+## Related Repositories
+
+Here are some helpful related projects for AWS Glue development:
+
+- [Pytest for AWS Glue](https://github.com/sagadevanmi/Pytest-for-AWS-Glue) - Examples of pytest implementation for AWS Glue jobs
+- [glue-libs-devcontainer](https://github.com/pippolino/glue-libs-devcontainer) - Docker development container for AWS Glue
+- [glue_libs_sso](https://github.com/jerdoe/glue_libs_sso) - AWS Glue libraries with SSO support
