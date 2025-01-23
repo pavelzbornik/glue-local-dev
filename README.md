@@ -11,45 +11,39 @@ This project provides a local development environment for AWS Glue using VS Code
 
 ## Ubuntu Setup Guide
 
-### 1. Install Docker
+### 1. Install Docker and Configure User Permissions
+
+Follow the guide at [Install Docker Engine on Ubuntu](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository)
+
 ```bash
-# Update package index
-sudo apt update
-
-# Install required packages
-sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
-
-# Add Docker's official GPG key
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-
-# Add Docker repository
-echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list
-
-# Update package index again
-sudo apt update
-
-# Install Docker
-sudo apt install -y docker-ce docker-ce-cli containerd.io
+# Create docker group if it doesn't exist
+sudo groupadd docker
 
 # Add current user to docker group
 sudo usermod -aG docker $USER
 
-# Start and enable Docker service
-sudo systemctl enable docker
-sudo systemctl start docker
+# NOTE: Log out and log back in for group changes to take effect
+# After logging back in, verify Docker works without sudo:
+docker run hello-world
 ```
+
 
 ### 2. Install Visual Studio Code
-```bash
-# Download and install VSCode .deb package
-wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
-sudo install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/
-sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
-rm -f packages.microsoft.gpg
 
-sudo apt update
-sudo apt install -y code
+For more info see [Visual Studio Code on Linux](https://code.visualstudio.com/docs/setup/linux)
+
+VS Code is officially distributed as a Snap package in the Snap Store.
+
+[Get it from the Snap Store](https://snapcraft.io/code)
+
+You can install it by running:
+
+```bash
+sudo snap install --classic code # or code-insiders
 ```
+
+Once installed, the Snap daemon takes care of automatically updating VS Code in the background. You get an in-product update notification whenever a new update is available.
+
 
 ### 3. Install VS Code Extensions
 1. Open VS Code
@@ -60,10 +54,10 @@ sudo apt install -y code
    - Jupyter
 
 ### 4. Configure AWS Credentials
-```bash
-# Install AWS CLI
-sudo apt install -y awscli
 
+To install for this [Installing or updating to the latest version of the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
+
+```bash
 # Configure AWS credentials
 aws configure
 # Enter your:
