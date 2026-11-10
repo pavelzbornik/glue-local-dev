@@ -9,7 +9,7 @@ isort==5.13.2
 pep8-naming==0.14.1
 
 # Pre-commit
-pre-commit==4.0.1
+pre-commit==4.7.0
 
 # Documentation
 codespell==2.3.0
