@@ -1,0 +1,14 @@
+# Written by agent-fleet (fleet github apply). Edit freely: fleet never changes
+# a dependabot.yml that exists.
+version: 2
+updates:
+  - package-ecosystem: pip
+    directories:
+      - "/"
+    schedule:
+      interval: weekly
+  - package-ecosystem: docker
+    directories:
+      - "/.devcontainer"
+    schedule:
+      interval: weekly
