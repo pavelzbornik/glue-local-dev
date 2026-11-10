@@ -174,7 +174,7 @@ repos:
       # ...other hooks...
 
   - repo: https://github.com/psf/black
-    rev: 23.9.1  # Version of Black to use
+    rev: 26.10.1  # Version of Black to use
     hooks:
       - id: black  # Python code formatter
 ```
