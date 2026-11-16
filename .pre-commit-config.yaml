@@ -47,7 +47,7 @@ repos:
     # hooks:
     #   - id: shellcheck
     #     args: ["-x"]
-    rev: v2.3.0
+    rev: v2.4.3
     hooks:
       - id: codespell
         additional_dependencies:
